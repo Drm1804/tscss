@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('panel')
+  angular.module('csssrTest')
     .config(config);
 
   /** @ngInject */

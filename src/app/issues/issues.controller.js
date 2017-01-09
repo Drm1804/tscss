@@ -5,7 +5,7 @@
     .controller('IssuesController', IssuesController);
 
   /** @ngInject */
-  function IssuesController(reposService) {
+  function IssuesController(reposService, $http) {
     var vm = this;
     vm.issuesData = null;
     vm.repoName = null;
@@ -16,10 +16,15 @@
     vm.activate();
 
     function getRepoData(user, repo) {
-      reposService.one(user).one(repo).one('issues').getList()
+      // reposService.one(user).one(repo).one('issues').getList()
+      //   .then(function (resp) {
+      //     vm.issuesData = resp.plain();
+      //     console.log(vm.issuesData);
+      //   })
+
+      $http.get('data.json')
         .then(function (resp) {
-          vm.issuesData = resp.plain();
-          console.log(vm.issuesData);
+          vm.issuesData = resp.data;
         })
     }
 

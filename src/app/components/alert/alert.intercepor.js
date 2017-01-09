@@ -9,6 +9,7 @@
     return{
       responseError : function (data) {
         $rootScope.$emit('alertShowBanner');
+        $rootScope.$emit('loaderFinish');
         return $q.reject(data);
       }
     }

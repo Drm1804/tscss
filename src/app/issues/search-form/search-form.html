@@ -1,0 +1,10 @@
+<div class="b-isf-input">
+    <input type="text" ng-model="search.userName" placeholder="Пользователь">
+    <button type="button" ng-click="search.getUserRepos(search.userName)">Получить репо</button>
+    <br>
+
+    <select ng-model="search.repoName" ng-options="repo.name for repo in search.reposList"
+            ng-hide="search.reposList == null" ng-change="search.getRepoIssues(search.userName, search.repoName.name)">
+        <option value="">Выберете репозиторий</option>
+    </select>
+</div>

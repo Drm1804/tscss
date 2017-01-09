@@ -1,12 +1,7 @@
 <div class="b-width">
     <div class="b-issues">
-        <div class="b-iss-input">
-            <input type="text" ng-model="issues.userName" placeholder="Пользователь">
-            <span>/</span>
-            <input type="text" ng-model="issues.repoName" placeholder="Репозиторий">
-            <button type="button" ng-click="issues.getRepoData(issues.userName, issues.repoName)">Получить данные
-            </button>
-        </div>
+        <issue-search-form get-repo-issues="issues.getRepoIssues"></issue-search-form>
+
         <div class="b-iss-data">
             <div class="b-iss-d-table b-iss-d-table--striped">
                 <div class="b-iss-d-table-body">

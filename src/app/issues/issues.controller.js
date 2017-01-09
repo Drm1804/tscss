@@ -16,16 +16,15 @@
     vm.activate();
 
     function getRepoData(user, repo) {
-      // reposService.one(user).one(repo).one('issues').getList()
-      //   .then(function (resp) {
-      //     vm.issuesData = resp.plain();
-      //     console.log(vm.issuesData);
-      //   })
-
-      $http.get('data.json')
+      reposService.one(user).one(repo).one('issues').getList()
         .then(function (resp) {
-          vm.issuesData = resp.data;
-        })
+          vm.issuesData = resp.plain();
+        });
+
+      // $http.get('data.json')
+      //   .then(function (resp) {
+      //     vm.issuesData = resp.data;
+      //   })
     }
 
     function activate() {

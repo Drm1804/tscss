@@ -6,7 +6,9 @@
     .config(config);
 
   /** @ngInject */
-  function config(RestangularProvider) {
+  function config(RestangularProvider, $httpProvider) {
+    $httpProvider.interceptors.push('loaderIntercepor');
+
 
     RestangularProvider
       .setBaseUrl('https://api.github.com');

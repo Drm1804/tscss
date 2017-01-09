@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController($state) {
     var vm = this;
     vm.activate = activate;
 
@@ -14,6 +14,9 @@
 
 
     function activate() {
+      if($state.is('main')){
+        $state.go('main.issues');
+      }
     }
   }
 })();

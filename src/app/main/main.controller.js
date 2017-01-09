@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($state) {
+  function MainController($state, $rootScope) {
     var vm = this;
     vm.activate = activate;
 
@@ -17,6 +17,10 @@
       if($state.is('main')){
         $state.go('main.issues');
       }
+
+      $rootScope.$on('$stateChangeSuccess', function() {
+        $rootScope.$emit('alertHideBanner');
+      });
     }
   }
 })();

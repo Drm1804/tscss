@@ -8,7 +8,7 @@
   function config($stateProvider){
     $stateProvider
       .state('main.issues', {
-        url: 'issues/',
+        url: 'issues/?userName&repoName',
         controller: 'IssuesController',
         controllerAs: 'issues',
         templateUrl: 'app/issues/issues.html'

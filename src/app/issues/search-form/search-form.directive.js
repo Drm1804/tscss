@@ -9,7 +9,8 @@
     return {
       restrict: 'E',
       scope: {
-        getRepoIssues: '='
+        getRepoIssues: '=',
+        repoData: '='
 
       },
       controller: 'IssueSearchFormController',

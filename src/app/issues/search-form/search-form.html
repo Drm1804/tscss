@@ -1,13 +1,13 @@
 <div class="b-isf-search">
-    <input class="b-isf-input" type="text" ng-model="search.userName" placeholder="Пользователь github">
-    <button type="button" ng-click="search.getUserRepos(search.userName)"
-            ng-disabled="!search.userName">
+    <input class="b-isf-input" type="text" ng-model="search.repoData.user" placeholder="Пользователь github">
+    <button type="button" ng-click="search.getUserRepos(search.repoData.user)"
+            ng-disabled="!search.repoData.user">
         Получить репо
     </button>
     <br>
 
-    <select class="b-isf-input" ng-model="search.repoName" ng-options="repo.name for repo in search.reposList"
-            ng-hide="search.reposList == null" ng-change="search.getRepoIssues(search.userName, search.repoName.name)">
+    <select class="b-isf-input" ng-model="search.repoData.repo" ng-options="repo.name for repo in search.reposList"
+            ng-hide="search.reposList == null" ng-change="search.getRepoIssues(search.repoData.user, search.repoData.repo.name)">
         <option value="">Выберете репозиторий</option>
     </select>
 </div>

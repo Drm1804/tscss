@@ -15,6 +15,10 @@
     function activate() {
       $rootScope.$on('alertShowBanner', function () {
         vm.showBanner = true;
+      });
+
+      $rootScope.$on('alertHideBanner', function () {
+        vm.showBanner = false;
       })
     }
 

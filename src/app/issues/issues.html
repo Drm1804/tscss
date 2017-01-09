@@ -1,7 +1,11 @@
 <div class="b-width">
-    <div class="b-issues">
-        <issue-search-form get-repo-issues="issues.getRepoIssues"></issue-search-form>
+    <div class="b-issues" ui-view>
 
+        <issue-search-form
+                get-repo-issues="issues.getRepoIssues"
+                repo-data="issues.repoData"
+                repo-name="issues.repoName">
+        </issue-search-form>
         <div class="b-iss-data">
             <div class="b-iss-d-table b-iss-d-table--striped">
                 <div class="b-iss-d-table-body">
@@ -11,6 +15,8 @@
                         </div>
                         <div class="b-iss-d-table-td">
                             <issue-info issue-data="item"></issue-info>
+                            <br>
+                            <a ui-sref="main.issue({userName: issues.repoData.user, repoName: issues.repoData.repo.name, issueId: item.number})"> Перейти к issue >>></a>
                         </div>
                     </div>
                 </div>

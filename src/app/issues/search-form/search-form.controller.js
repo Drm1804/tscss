@@ -7,10 +7,9 @@
   /** @ngInject */
   function IssueSearchFormController(usersService, $scope) {
     var vm = this;
-    vm.repoName = null;
-    vm.reposList = null;
-    vm.userName = null;
     vm.getRepoIssues = $scope.getRepoIssues;
+    vm.reposList = null;
+    vm.repoData = null;
 
     vm.activate = activate;
     vm.getUserRepos = getUserRepos;
@@ -24,7 +23,10 @@
     }
 
     function activate() {
-      vm.getRepoIssues = $scope.getRepoIssues;
+      $scope.$watch(angular.bind(vm, function () {
+        vm.repoData = $scope.repoData;
+        return vm;
+      }))
     }
 
   }

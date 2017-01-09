@@ -13,8 +13,10 @@
     vm.activate();
 
     function activate() {
-      vm.data = $scope.userData;
+      $scope.$watch(angular.bind(vm, function () {
+        vm.data = $scope.userData;
+        return vm;
+      }))
     }
-
   }
 })();

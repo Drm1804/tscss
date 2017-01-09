@@ -5,7 +5,7 @@
     .controller('LoaderController', LoaderController);
 
   /** @ngInject */
-  function LoaderController($rootScope) {
+  function LoaderController($rootScope, $scope) {
     var vm = this;
     vm.loaderCount = 0;
 
@@ -13,15 +13,15 @@
     vm.activate();
 
     function activate() {
-      $rootScope.$on('loaderStart', function () {
+      $scope.$on('$destroy', $rootScope.$on('loaderStart', function () {
         vm.loaderCount += 1;
-      });
-      $rootScope.$on('loaderFinish', function () {
-        if(vm.loaderCount != 0){
+      }));
+
+      $scope.$on('$destroy', $rootScope.$on('loaderFinish', function () {
+        if (vm.loaderCount != 0) {
           vm.loaderCount -= 1;
         }
-
-      })
+      }))
     }
 
   }

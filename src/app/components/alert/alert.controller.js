@@ -5,7 +5,7 @@
     .controller('AlertController', AlertController);
 
   /** @ngInject */
-  function AlertController($rootScope) {
+  function AlertController($rootScope, $scope) {
     var vm = this;
     vm.showBanner = false;
 
@@ -13,13 +13,13 @@
     vm.activate();
 
     function activate() {
-      $rootScope.$on('alertShowBanner', function () {
-        vm.showBanner = true;
-      });
+      $scope.$on('$destroy', $rootScope.$on('alertShowBanner', function () {
+          vm.showBanner = true;
+        }));
 
-      $rootScope.$on('alertHideBanner', function () {
+      $scope.$on('$destroy', $rootScope.$on('alertHideBanner', function () {
         vm.showBanner = false;
-      })
+      }));
     }
 
   }

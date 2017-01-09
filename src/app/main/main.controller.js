@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($state, $rootScope) {
+  function MainController($state, $rootScope, $scope) {
     var vm = this;
     vm.activate = activate;
 
@@ -14,13 +14,14 @@
 
 
     function activate() {
-      if($state.is('main')){
+      if ($state.is('main')) {
         $state.go('main.issues');
       }
 
-      $rootScope.$on('$stateChangeSuccess', function() {
-        $rootScope.$emit('alertHideBanner');
-      });
+      $scope.$on('$destroy', $rootScope.$on('$stateChangeSuccess', function () {
+          $rootScope.$emit('alertHideBanner');
+        })
+      )
     }
   }
 })();

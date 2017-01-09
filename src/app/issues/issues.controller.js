@@ -29,7 +29,7 @@
     }
 
     function activate() {
-      if($stateParams.userName !== undefined && $stateParams.repoName !== undefined ){
+      if( angular.isDefined($stateParams.userName) && angular.isDefined($stateParams.repoName)){
         vm.getRepoIssues($stateParams.userName, $stateParams.repoName);
       }
     }

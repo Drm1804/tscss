@@ -8,6 +8,7 @@
   /** @ngInject */
   function config(RestangularProvider, $httpProvider) {
     $httpProvider.interceptors.push('loaderIntercepor');
+    $httpProvider.interceptors.push('alertIntercepor');
 
 
     RestangularProvider

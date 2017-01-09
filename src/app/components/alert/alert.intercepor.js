@@ -5,15 +5,12 @@
     .factory('alertIntercepor', alertIntercepor);
 
   /** @ngInject */
-  function alertIntercepor(){
+  function alertIntercepor($rootScope, $q){
     return{
-      responseError : function (rejection) {
-
-        return $q.reject(rejection);
-
+      responseError : function (data) {
+        $rootScope.$emit('alertShowBanner');
+        return $q.reject(data);
       }
-
-
     }
   }
 })();
